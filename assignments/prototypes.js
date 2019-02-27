@@ -141,3 +141,82 @@ Humanoid.prototype.greet = function() {
   // * Create Villain and Hero constructor functions that inherit from the Humanoid constructor function.  
   // * Give the Hero and Villains different methods that could be used to remove health points from objects which could result in destruction if health gets to 0 or drops below 0;
   // * Create two new objects, one a villain and one a hero and fight it out with methods!
+
+  function Villian(args) {
+    Humanoid.call(this, args);
+  }
+
+  Villian.prototype = Object.create(Humanoid.prototype);
+  Villian.prototype.nuclearBomb = function(target) {
+    if(target.healthPoints <= 0) {
+      console.log(`${target.name} is already dead. :\\`);
+      return;
+    }
+    const attackDamage = 5;
+    console.log(`${target.name} was attacked by ${this.name} for ${attackDamage} health.`);
+    target.healthPoints -= 5;
+    if(target.healthPoints <= 0) {
+      target.destroy();
+    }
+
+    return target;
+  }
+
+  function Hero(args) {
+    Humanoid.call(this, args);
+  }
+
+  Hero.prototype = Object.create(Humanoid.prototype);
+  Hero.prototype.guidedMissiles = function(target) {
+
+    if(target.healthPoints <= 0) {
+      console.log(`${target.name} is already dead. :\\`);
+      return;
+    }
+    const attackDamage = 5;
+    console.log(`${target.name} was attacked by ${this.name} for ${attackDamage} health.`);
+    target.healthPoints -= attackDamage;
+
+    if(target.healthPoints <= 0) {
+      target.destroy();
+    }
+
+    return target;
+  }
+
+  let american = new Hero({
+    createdAt: new Date(),
+    dimensions: {
+      length: 2,
+      width: 2,
+      height: 2
+    },
+    healthPoints: 10,
+    name: 'America!',
+    team: 'The West',
+    weapons: [
+      'Guided Missiles'
+    ],
+    language: 'English',
+  });
+
+  let terrorist = new Villian({
+    createdAt: new Date(),
+    dimensions: {
+      length: 1,
+      width: 2,
+      height: 4
+    },
+    healthPoints: 10,
+    name: 'Terrorist',
+    team: 'ISIS',
+    weapons: [
+      'Nuclear Bomb'
+    ],
+    language: 'Arabic',
+  });
+
+
+american.guidedMissiles(terrorist);  
+american.guidedMissiles(terrorist);
+american.guidedMissiles(terrorist);
