@@ -2,9 +2,9 @@
   "name": "javascript-iii",
   "version": "1.0.0",
   "description": "This challenge focuses on using the `this` keyword as well as getting comfortable with prototypes by building out a fantasy themed video game.",
-  "main": "assignments/prototypes.js",
+  "main": "index.html",
   "scripts": {
-    "start": "nodemon assignments/prototypes.js",
+    "start": "live-server",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
