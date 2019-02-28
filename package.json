@@ -1,0 +1,20 @@
+{
+  "name": "javascript-iii",
+  "version": "1.0.0",
+  "description": "This challenge focuses on using the `this` keyword as well as getting comfortable with prototypes by building out a fantasy themed video game.",
+  "main": "index.html",
+  "scripts": {
+    "start": "live-server",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WilliamConnatser/JavaScript-III.git"
+  },
+  "author": "William Connatser",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/WilliamConnatser/JavaScript-III/issues"
+  },
+  "homepage": "https://github.com/WilliamConnatser/JavaScript-III#readme"
+}
