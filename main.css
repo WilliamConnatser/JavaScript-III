@@ -4,3 +4,10 @@
     justify-content: space-around;
     align-items: center;
 }
+
+button {
+    margin-top: 10px;
+    background: black;
+    color: white;
+    border: 3px solid black;
+}

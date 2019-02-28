@@ -156,6 +156,7 @@ Villain.prototype.nuclearBomb = function (target) {
   console.log(`${target.name} was attacked by ${this.name} for ${attackDamage} health.`);
   target.healthPoints -= 5;
   if (target.healthPoints <= 0) {
+    console.log(target.destroy())
     target.destroy();
   }
 
@@ -178,6 +179,7 @@ Hero.prototype.guidedMissiles = function (target) {
   target.healthPoints -= attackDamage;
 
   if (target.healthPoints <= 0) {
+    console.log(target.destroy())
     target.destroy();
   }
 
@@ -242,11 +244,26 @@ window.onload = function () {
   let villainAttack = document.querySelector('.villain-attack');
   let heroAttack = document.querySelector('.hero-attack');
 
-  villainAttack.addEventListener("click", event => {
+  villainAttack.addEventListener("click", _ => {
     terrorist.nuclearBomb(american);
+
+    if(american.healthPoints <= 0) {
+      heroInfo.style.background = 'red';
+    }
   });
 
-  heroAttack.addEventListener("click", event => {
+  heroAttack.addEventListener("click", _ => {
     american.guidedMissiles(terrorist);
+
+    if(terrorist.healthPoints <= 0) {
+      VillainInfo.style.background = 'red';
+    } else {
+      VillainInfo.style.background = 'red';
+      setTimeout(
+        () => {
+          VillainInfo.style.background = 'white';
+        },50
+      )
+    }
   });
 }
